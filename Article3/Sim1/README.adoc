@@ -1,0 +1,16 @@
+= Qorvo's QSPICE Example: P-FET LDO Open / Closed Loop PSRR with Intentional Line Regulation
+
+== Overview
+This p-FET LDO model illustrates that a PSRR curve at low frequency region is converging to its DC parameter "line regulation".
+
+Both PSRR and DC-parameter-Line-Regulation share the same expression / definition:
+
+PSRR = Line-Regulation = ƒ¢Vout / ƒ¢Vin
+
+In many regulator devices, its refernece voltage source "VREF" is depending on its supply voltage and that tiny drift of VREF is captured as line-regulation or PSRR of low frequency.
+
+== Note
+This is a p-FET LDO model.
+The control of p-FET is "negative direction", that means the error amp "+" and "-" working in opposite way.
+Though the feedback signal from Rfb // Rg goes into the "+" port, this forms a "negative feedback loop".
+

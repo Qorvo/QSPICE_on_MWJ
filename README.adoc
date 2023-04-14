@@ -1,0 +1,36 @@
+= Qorvo's QSPICE Example (available at https://github.com/Qorvo/QSPICE_on_MWJ_SIJ)
+
+== Overview
+This repository offers examples used in Microwave Journal (MWJ) / Signal Integrity Journal (SiJ) articles written by a Qorvo engineer https://github.com/MasashiNogawa[Masashi Nogawa].
+
+The contents are mixture of following kind of files.
+
+* QSPICE simulation deck / schematic
+* Python scripts as post data processor, plotting simulation results
+
+
+== About QSPICE
+Qorvo offers a free simulation tool QSPICE, that is a very fast running SPICE.
+On this QSPICE platform, Qorvo keeps offering simulation models of power management ICs and power SiC transistor devices (products of, formerly known as, UnitedSiC).
+
+QSPICE is available from https://www.MarcusAureliusSoftware.com/InstallQSPICE.exe[this URL] for free.
+
+
+== Licenses of examples in this repository
+NOTE: Please kindly let us know when you find other licenses to be mentioned here.
+
+* The QSPICE files of file-extensions ".qsch", ".cir" and ".qraw" are under the https://github.com/MasashiNogawa/DPT-on-MSO6/blob/main/LICENSE[license of Qorvo].
+
+* The Python script codes of file-extension ".py", writtne by Qorvo, are also under the https://github.com/MasashiNogawa/DPT-on-MSO6/blob/main/LICENSE[license of Qorvo].
+
+
+== Dependencies / Libraries to be Installed on Your PC
+
+* The Python script "qspice.py", that is handling QSPICE output file, is a sub-class of https://pypi.org/project/ltspice/["ltspice" library] and this "ltspice" lib is needed to install ">> pip install ltspice".
+We are working to add our own methods, as sub-class, handling QSPICE specific data formats.
+* The parent "ltspice" lib requires commonly used Python libraries.
+** https://pypi.org/project/matplotlib/[matplotlib]
+** https://pypi.org/project/numpy/[numpy]
+
+..end of README
+

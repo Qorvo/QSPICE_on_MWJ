@@ -1,0 +1,19 @@
+= Qorvo's QSPICE Example: P-FET LDO Open / Closed Loop PSRR
+
+== Overview
+This p-FET LDO model compares its "open loop PSRR" and "closed loop PSRR".
+In another words, "PSRR of LDO working / ON" and "PSRR of LDO not-working / OFF".
+
+The model illustrates that a PSRR curve beyond its loop BW is a performance of output capacitor.
+As we modeled this output capacitor to have ESR and ESL, it has its self-resonant peak that is helping to boost the PSRR...but, again, that's nothing to do with the LDO control loop.
+
+The LC pair ("Lopen", "Copen") is working to open/close the loop control. +
+When "closed" @ x=0, the gate drive signal from the error amp goes to the P-FET.
+When "open" @ x=1, the gate drive signal from the error amp goes through this strong low-pass filter and only DC bias point set by the error amp.
+
+== Note
+This is a p-FET LDO model.
+The control of p-FET is "negative direction", that means the error amp "+" and "-" working in opposite way.
+Though the feedback signal from Rfb // Rg goes into the "+" port, this forms a "negative feedback loop".
+
+

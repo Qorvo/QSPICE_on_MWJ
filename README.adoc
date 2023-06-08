@@ -5,8 +5,9 @@ This repository offers examples used in Microwave Journal (MWJ) / Signal Integri
 
 The contents are mixture of following kind of files.
 
-* QSPICE simulation deck / schematic
-* Python scripts as post data processor, plotting simulation results
+* QSPICE simulation decks / schematics (**.qsch**)
+* Netlist files (**.cir**) for QSPICE from the **.qsch** schematics (above).
+* Python scripts (**.py**) as post data processor, plotting simulation results
 
 
 == About QSPICE

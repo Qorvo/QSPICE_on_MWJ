@@ -1,7 +1,7 @@
-= Qorvo's QSPICE Example (available at https://github.com/Qorvo/QSPICE_on_MWJ_SIJ)
+= Qorvo's QSPICE Examples from https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity[RF Signal Integrity to Power Integrity] series blog/article
 
 == Overview
-This repository offers examples used in Microwave Journal (MWJ) / Signal Integrity Journal (SiJ) articles written by a Qorvo engineer https://github.com/MasashiNogawa[Masashi Nogawa].
+This repository offers examples used in a series blog/articles on https://www.microwavejournal.com/[Microwave Journal (MWJ)] written by a Qorvo engineer https://www.microwavejournal.com/authors/5278-masashi-nogawa-sr-member-of-technical-staff-qorvo[Masashi Nogawa].
 
 The contents are mixture of following kind of files.
 

@@ -1,0 +1,33 @@
+= Qorvo's QSPICE Example: P-FET LDO Open / Closed Loop PSRR with Intentional Line Regulation
+
+== Overview
+
+This p-FET LDO model illustrates that a PSRR curve at low frequency region is converging to its DC parameter "line regulation".
+
+Both PSRR and DC-parameter-Line-Regulation share the same expression / definition:
+
+PSRR = Line-Regulation = É¢Vout / É¢Vin
+
+In many regulator devices, its reference voltage source "VREF" is depending on its supply voltage and that tiny drift of VREF is captured as line-regulation or PSRR of low frequency.
+
+== Note
+
+This is a p-FET LDO model.
+The control of p-FET is "negative direction", that means the error amp "+" and "-" working in opposite way.
+Though the feedback signal from Rfb // Rg goes into the "+" port, this forms a "negative feedback loop".
+
+== Files
+
+1. We start from the schematic capture **VRM_PSRR_LineReg.qsch**. +
+   For your convenience, we converted the schematic into the image file **VRM_PSRR_LineReg.png**.
+image::VRM_PSRR_LineReg.png[]
+2. On the QSPICE GUI, we convert the schematic into the netlist **VRM_PSRR_LineReg.cir**.
+3. By executing the Python script **VRM_PSRR_LineReg.py**, we run the QSPICE from the netlist. +
+   We need the Python library file **qspice.py** in this directory. +
+Å@+
+   Then, the script converts the netlist from "ac simulation" to "transient simulation", results in the 2nd netlist **VRM_PSRR_LineReg_tran.cir**. +
+   And the script runs QSPICE for the transient run.
+4. The QSPICE results in the output waveform plots **VRM_PSRR_LineReg.png** and **VRM_PSRR_LineReg_tran.png**.
+image::VRM_PSRR_LineReg.png[]
+image::VRM_PSRR_LineReg_tran.png[]
+

@@ -1,0 +1,31 @@
+* C:\Users\mn080015\OneDrive - Qorvo\Documents\QSPICE\QSPICE_on_MWJ_SIJ\Article3\Sim1\VRM_PSRR_LineReg.qsch
+Rload VOUT 0 100
+Vac N07 N01 AC 1
+Vref N03 0 DC 0.5
+Vin N01 0 DC 10
+M_PMOS VOUT N02 VIN VIN PFET PMOS
+Cout N05 N06 22µ
+Rfb VOUT FB 90K
+Rg FB 0 10K
+EA N08 0 FB REF 3K
+Vsine VIN N07 SIN 0 0.5 1
+Eline N04 N03 VIN N03 {line}
+Rbw2 N04 REF 1Meg
+Cbw2 REF 0 10n
+R2 VOUT N05 10m
+L2 N06 0 1n
+Rbw N08 N09 1Meg
+Cbw N09 0 22p
+Ebuf N02 0 N09 0 1
+.model PFET PMOS Kp=100 eta=10m VT0 = -1
+.step param line list 0 0.5m
+*AC_begin
+*.ac dec 20 1 100Meg
+*.plot AC 1/V(VOUT)
+*AC_end
+*TRAN_begin
+.tran 10
+.plot tran V(VOUT)
+*TRAN_end
+.lib PMOS.txt
+.end

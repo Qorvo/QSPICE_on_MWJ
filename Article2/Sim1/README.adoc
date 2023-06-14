@@ -2,7 +2,7 @@
 
 == Overview
 
-This p-FET LDO model compares its "open loop gain" and "closed loop gain".
+This p-FET LDO model compares its "open loop gain" and "closed loop gain" from the post https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity/post/40328-every-vrm-is-a-power-amplifier-pa-of-a-special-kind[Every VRM is a Power Amplifier (PA) of a Special Kind] of a series blog/article https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity[RF Signal Integrity to Power Integrity] on https://www.microwavejournal.com/[Microwave Journal].
 
 This LDO is designed to have 5V output from its 0.5V reference voltage (VREF), so it's a gain=10 amplifier from the view point of the VREF.
 

@@ -21,12 +21,13 @@ Though the feedback signal from Rfb // Rg goes into the "+" port, this forms a "
 
 == Files
 
-1. We start from the schematic capture **VRM_GainBW.qsch**. +
-   For your convenience, we converted the schematic into the image file **VRM_GainBW_sch.png**. +
-image::VRM_GainBW_sch.png[]
-2. On the QSPICE GUI, we convert the schematic into the netlist **VRM_GainBW.cir**.
-3. By executing the Python script **VRM_GainBW.py**, we run the QSPICE from the netlist. +
-   We need the Python library file **qspice.py** in this directory.
-4. The QSPICE results in the output waveform plot **VRM_GainBW_plt.png**. +
-image::VRM_GainBW_sch.png[]
+* We start from the schematic capture **VRM_GainBW.qsch**. +
+   For your convenience, we converted the schematic into the image file **VRM_GainBW_sch.png**.
 
+image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article2/Sim1/VRM_GainBW_sch.png[]
+* On the QSPICE GUI, we convert the schematic into the netlist **VRM_GainBW.cir**.
+* By executing the Python script **VRM_GainBW.py**, we run the QSPICE from the netlist. +
+   We need the Python library file **qspice.py** in this directory.
+* The QSPICE results in the output waveform plot **VRM_GainBW_plt.png**.
+
+image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article2/Sim1/VRM_GainBW_plt.png[]

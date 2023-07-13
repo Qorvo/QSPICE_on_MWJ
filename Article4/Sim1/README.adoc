@@ -1,0 +1,26 @@
+= Qorvo's QSPICE Example: P-FET LDO PSRR with LDO ON / OFF
+
+== Overview
+
+This p-FET LDO model compares its PSRR curves with conditions "LDO ON" and "LDO OFF" from the post https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity/post/tbd[TBD] of a series blog/article https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity[RF Signal Integrity to Power Integrity] on https://www.microwavejournal.com/[Microwave Journal].
+
+The key point of this simulation is to illustrate the behind power/engine of VRM PSRR performance comes from the error-amp (EA).  As this EA's bandwidth fading at high frequency, the PSRR curve is identical to the output capacitor.
+
+== Note
+This is a p-FET LDO model.
+The control of p-FET is "negative direction", that means the error amp "+" and "-" working in opposite way.
+Though the feedback signal from Rfb // Rg goes into the "+" port, this forms a "negative feedback loop".
+
+== Files
+
+* We start from the schematic capture **VRM_PSRR_OnOff.qsch**. +
+  For your convenience, we converted the schematic into the image file **VRM_PSRR_OnOff_sch.png**.
+
+image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article4/Sim1/VRM_PSRR_OnOff_sch.png[]
+* On the QSPICE GUI, we convert the schematic into the netlist **VRM_PSRR_OnOff.cir**.
+* By executing the Python script **VRM_PSRR_OnOff.py**, we run the QSPICE from the netlist. +
+  We need the Python library file **qspice.py** in this directory.
+* The QSPICE results in the output waveform plot **VRM_PSRR_OnOff_plt.png**.
+
+image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article4/Sim1/VRM_PSRR_OnOff_plt.png[]
+

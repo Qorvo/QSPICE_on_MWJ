@@ -2,7 +2,7 @@
 
 == Overview
 
-This p-FET LDO model illustrates that a PSRR curve at low frequency region is converging to its DC parameter "line regulation".
+This p-FET LDO model illustrates that a PSRR curve at low frequency region is converging to its DC parameter "line regulation" from the post https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity/post/40456-line-regulation-and-psrr-power-supply-ripple-rejection[Line Regulation and PSRR (Power Supply Ripple Rejection)] of a series blog/article https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity[RF Signal Integrity to Power Integrity] on https://www.microwavejournal.com/[Microwave Journal].
 
 Both PSRR and DC-parameter-Line-Regulation share the same expression / definition:
 

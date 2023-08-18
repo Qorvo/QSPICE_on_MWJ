@@ -4,6 +4,8 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import re
+import os
+from os.path import expanduser
 
 #######
 # Plot Default
@@ -24,7 +26,20 @@ plt.rc('axes', unicode_minus=False)
 
 #######
 # QSPICE
-qname = r"c:/Program Files/QSPICE/QSPICE64.exe"
+
+home = expanduser("~")
+
+gqname = r"c:/Program Files/QSPICE/QSPICE64.exe"
+lqname = home + "/QSPICE/QSPICE64.exe"
+
+if os.path.isfile(gqname):
+    qname = gqname
+if os.path.isfile(lqname):
+    qname = lqname
+if not 'qname' in locals():
+    print("QSPICE.exe not found!")
+    exit()
+
 qopt = "-ASCII"
 
 #######

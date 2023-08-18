@@ -3,11 +3,25 @@ import qspice
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
+import os
+from os.path import expanduser
 
 #######
 # Run QSPICE for ASCII output
 
-qname = r"c:/Program Files/QSPICE/QSPICE64.exe"
+home = expanduser("~")
+
+gqname = r"c:/Program Files/QSPICE/QSPICE64.exe"
+lqname = home + "/QSPICE/QSPICE64.exe"
+
+if os.path.isfile(gqname):
+    qname = gqname
+if os.path.isfile(lqname):
+    qname = lqname
+if not 'qname' in locals():
+    print("QSPICE.exe not found!")
+    exit()
+
 qopt = "-ASCII"
 fname = "VRM_GainBW"
 

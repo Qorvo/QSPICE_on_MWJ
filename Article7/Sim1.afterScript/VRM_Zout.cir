@@ -1,0 +1,39 @@
+* VRM_Zout.qsch
+Rload N01 0 100
+Vref REF 0 DC 0.5
+Vin VIN 0 DC 10
+M_PMOS VOUT N03 VIN VIN PFET PMOS
+Cout N04 N07 22µ
+Rfb VOUT N02 90K
+Rg N02 0 10K
+Copen FB 0 {Copen}
+L1 FB N02 {Lopen}
+EA N05 0 FB REF 3K
+R2 VOUT N04 10m
+Rbw N05 N06 1Meg
+Cbw N06 0 22p
+Ebuf N03 0 N06 0 1
+I1 0 N01 AC 1
+V1 VOUT N01 DC 0
+I2 0 N01 sine 10m 10m {f}
+L2 N07 0 1n
+.model PFET PMOS Kp=100 eta=10m VT0 = -1
+.param Lopen={if(x, 1f, 1K)}
+.param Copen={if(x, 1f, 1K)}
+.step param x list 1 0
+*AC_begin
+.ac dec 20 1 100Meg
+.plot AC V(VOUT)/I(V1)
+.plot V(VOUT)
+.plot I(V1) 
+.meas Zout_dB 20*log10(abs(V(VOUT)/I(V1))) at 50K
+*AC_end
+*TRAN_begin
+*.param f 50K
+*.tran {10/f}
+*.plot tran V(VOUT)
+*.meas Vpk_max max V(VOUT) from {9/f}
+*.meas Vpk_min min V(VOUT) from {9/f}
+*TRAN_end
+.lib PMOS.txt
+.end

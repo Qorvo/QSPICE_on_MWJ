@@ -1,4 +1,4 @@
-* QSPICE_on_MWJ\Article2\Sim1\VRM_GainBW.qsch
+* VRM_GainBW.qsch
 Rload VOUT 0 {Rload}
 Vac N07 N06 AC 1
 Vref N06 0 DC 0.5

@@ -377,8 +377,8 @@
   «wire (-5100,7200) (-3700,7200) "N09"»
   «rect (-6500,7500) (-3000,6600) 0 3 0 0xff12 0x1000000 -1 0 -1»
   «text (-8200,4600) 1 7 0 0x1000000 -1 -1 ".model PFET PMOS Kp=100 eta=10m VT0 = -1\n.step param line list 0 0.5m "»
-  «text (-4450,4800) 1 7 0 0x1000000 -1 -1 "*.ac dec 20 1 100Meg\n*.plot AC 1/V(VOUT)"»
+  «text (-4450,4800) 1 7 0 0x1000000 -1 -1 "*AC_begin\n.ac dec 20 1 100Meg\n.plot AC 1/V(VOUT)\n*AC_end"»
   «text (-5700,7900) 1 0 1 0x1000000 -1 -1 "Driving P-Type MOS Gate!\n"+" pin: "acting" negative port\n"-" pin: "acting" positive port"»
-  «text (-4450,4200) 1 7 0 0x1000000 -1 -1 ".tran 10\n.plot tran V(VOUT)"»
+  «text (-4450,3850) 1 7 0 0x1000000 -1 -1 "*TRAN_begin\n*.tran 10\n*.plot tran V(VOUT)\n*TRAN_end"»
 »
 

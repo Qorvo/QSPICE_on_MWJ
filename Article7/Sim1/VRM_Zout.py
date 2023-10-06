@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-fname = "VRM_PSRR_LineReg"
+fname = "VRM_Zout"
 
 run = pqs.PyQSPICE(fname)
 #print(run.path)
@@ -24,15 +24,16 @@ run.cir2qraw()
 
 run.setNline(199)
 
-df = run.LoadQRAW(["V(vout)"])
+df = run.LoadQRAW(["V(VOUT)", "I(V1)"])
 #print(df)
 
-def CalcGain(row):
-    row["PSRR"] = 20*math.log10(1/abs(row["V(vout)"]))
+def CalcImpe(row):
+    row["ZO"] = row["V(VOUT)"] / row["I(V1)"]
+    row["absZo"] = 20*math.log10(abs(row["ZO"]))
     return row
-df = df.apply(CalcGain, axis=1)
+df = df.apply(CalcImpe, axis=1)
 
-run.comp2real(df, ["Step", "PSRR", run.sim['Xlbl']])
+run.comp2real(df, ["Step", "absZo", run.sim['Xlbl']])
 
 
 #######
@@ -50,14 +51,15 @@ plt.style.use('ggplot')
 fig, ax = plt.subplots(tight_layout=True)
 #fig.suptitle("$Z_{OUT}$")
 
-df[df.Step == 0].plot(ax=ax, x="Freq",  y="PSRR", label="w/o Line-Reg")
-df[df.Step == 1].plot(ax=ax, x="Freq",  y="PSRR", label="w/ Line-Reg")
+df[df.Step == 0].plot(ax=ax, x="Freq",  y="absZo", label="Open Loop")
+df[df.Step == 1].plot(ax=ax, x="Freq",  y="absZo", label="Closed Loop")
 
 ax.set_xscale('log')
 ax.set_xlim(1,10e6)
-ax.set_ylim(-20,80)
+ax.set_ylim(-60,80)
 ax.set_xticks([1,1e1,1e2,1e3,1e4,1e5,1e6,1e7],["1","10","100","1k","10k","100k","1M","10M"])
-ax.set_ylabel('PSRR (dB)', fontsize=14)
+ax.set_yticks([-60,-40,-20,0,20,40,60,80],["1m","10m","100m","1","10","100","1k","10k"])
+ax.set_ylabel('Output Impedance ($\Omega$)', fontsize=14)
 ax.set_xlabel('Frequency (Hz)', fontsize=14)
 ax.minorticks_on()
 ax.xaxis.set_major_locator(mpl.ticker.LogLocator(numticks=13))
@@ -110,7 +112,7 @@ run2.cir2qraw()
 
 run2.setNline(199)
 
-df2 = run2.LoadQRAW(["V(vout)"])
+df2 = run2.LoadQRAW(["V(VOUT)"])
 
 #######
 # Plotting Pandas, Tran
@@ -119,30 +121,37 @@ plt.close('all')
 
 plt.style.use('ggplot')
 
-fig2, (axT, axB) = plt.subplots(2,1,sharex=True,constrained_layout=True)
+fig2, (axL, axR) = plt.subplots(1,2,sharey=True,constrained_layout=True)
+#fig.suptitle("$Z_{OUT}$")
 
-df2[df2.Step == 0].plot(ax=axB, x="Time",  y="V(vout)", label="w/o Line-Reg")
-df2[df2.Step == 1].plot(ax=axT, x="Time",  y="V(vout)", label="w Line-Reg")
+df2[df2.Step == 0].plot(ax=axL, x="Time",  y="V(VOUT)", label="Open Loop")
+df2[df2.Step == 1].plot(ax=axR, x="Time",  y="V(VOUT)", label="Closed Loop")
 
-fig2.suptitle("VOUT (V): PSRR by Intentional \"Bad\" Line Regulation")
+fig2.suptitle("$V_{OUT}$ Ripple from 10mA Current Ripple")
 
-axB.set_xlabel('Time (s)', fontsize=14)
-axB.set_ylabel('w/o Line-Reg', fontsize=14)
-axT.set_ylabel('w/ Line-Reg', fontsize=14)
+axL.set_xlabel('Open Loop:  Time ($\mu$s)', fontsize=14)
+axR.set_xlabel('Closed Loop:  Time R ($\mu$s)', fontsize=14)
+axL.set_ylabel('$V_{OUT} (V)$', fontsize=14)
 
-axB.set_ylim(5.02,5.04)
-axT.set_ylim(5.07,5.09)
+axL.set_ylim(5.029,5.033)
+axR.set_ylim(5.029,5.033)
 
-axB.grid(which='major', linewidth="0.5")
-axB.grid(which="minor", linewidth="0.35")
-axT.grid(which='major', linewidth="0.5")
-axT.grid(which="minor", linewidth="0.35")
+axL.grid(which='major', linewidth="0.5")
+axL.grid(which="minor", linewidth="0.35")
+axR.grid(which='major', linewidth="0.5")
+axR.grid(which="minor", linewidth="0.35")
 
-Bpp = (df2[df2.Step == 0])["V(vout)"].max() - (df2[df2.Step == 0])["V(vout)"].min()
-Tpp = (df2[df2.Step == 1])["V(vout)"].max() - (df2[df2.Step == 1])["V(vout)"].min()
+Lpp = (df2[df2.Step == 0])["V(VOUT)"].max() - (df2[df2.Step == 0])["V(VOUT)"].min()
+Rpp = (df2[df2.Step == 1])["V(VOUT)"].max() - (df2[df2.Step == 1])["V(VOUT)"].min()
 
-axB.text(2, 5.035, "Peak-to-Peak: {0:.2f} mV".format(Bpp*1000))
-axT.text(2, 5.085, "Peak-to-Peak: {0:.2f} mV".format(Tpp*1000))
+axL.set_xticks([0,20e-6,40e-6,60e-6,80e-6,100e-6,120e-6,140e-6,160e-6,180e-6,200e-6],["0","20","40","60","80","100","120","140","160","180","200"])
+axR.set_xticks([0,20e-6,40e-6,60e-6,80e-6,100e-6,120e-6,140e-6,160e-6,180e-6,200e-6],["0","20","40","60","80","100","120","140","160","180","200"])
+
+axL.text(20e-6, 5.0295, "Peak-to-Peak: {0:.2f} mV".format(Lpp*1000))
+axR.text(20e-6, 5.0295, "Peak-to-Peak: {0:.2f} mV".format(Rpp*1000))
+
+axL.legend(ncol=1, loc="lower center",fancybox=True)
+axR.legend(ncol=1, loc="lower center",fancybox=True)
 
 plt.savefig(ftran + "_plt.png", format='png', bbox_inches='tight')
 plt.show()

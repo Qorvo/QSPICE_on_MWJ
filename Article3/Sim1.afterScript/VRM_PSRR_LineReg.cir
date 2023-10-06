@@ -1,4 +1,4 @@
-* QSPICE_on_MWJ\Article3\Sim1\VRM_PSRR_LineReg.qsch
+* VRM_PSRR_LineReg.qsch
 Rload VOUT 0 100
 Vac N07 N01 AC 1
 Vref N03 0 DC 0.5

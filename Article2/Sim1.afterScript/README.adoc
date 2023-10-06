@@ -4,9 +4,9 @@
 
 On Oct 6th, 2023, Python scripts are updated to utilize https://github.com/Qorvo/PyQSPICE[PyQSPICE] module.
 
-== Before Python Script
+== After Python Script
 
-This folder contains minimum files to start the Python script.
+This folder contains resultng files after running the Python script.
 
 == Overview
 

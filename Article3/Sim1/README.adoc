@@ -44,8 +44,8 @@ image::VRM_PSRR_LineReg_sch.png[]
 
 * Finally, the same script generates the output plot **VRM_PSRR_LineReg.png**.
 
-//image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article3/Sim1/VRM_PSRR_LineReg_plt.png[]
-image::VRM_PSRR_LineReg_plt.png[]
+//image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article3/Sim1.afterScript/VRM_PSRR_LineReg_plt.png[]
+image::../Sim1.afterScript/VRM_PSRR_LineReg_plt.png[]
 
 ***
 
@@ -55,6 +55,6 @@ This example has the 2nd step.
 
 * With the same flow as the 1st step, we have the 2nd plot **VRM_PSRR_LineReg_tran.png**.
 
-//image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article3/Sim1/VRM_PSRR_LineReg_tran_plt.png[]
-image::VRM_PSRR_LineReg_tran_plt.png[]
+//image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article3/Sim1.afterScript/VRM_PSRR_LineReg_tran_plt.png[]
+image::../Sim1.afterScript/VRM_PSRR_LineReg_tran_plt.png[]
 

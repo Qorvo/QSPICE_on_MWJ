@@ -39,6 +39,6 @@ image::VRM_PSRR_OnOff_sch.png[]
 
 * Finally, the same script generates the output plot **VRM_PSRR_OnOff_plt.png**.
 
-//image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article2/Sim1/VRM_PSRR_OnOff_plt.png[]
-image::VRM_PSRR_OnOff_plt.png[]
+//image::https://github.com/Qorvo/QSPICE_on_MWJ/blob/main/Article2/Sim1.afterScript/VRM_PSRR_OnOff_plt.png[]
+image::../Sim1.afterScript/VRM_PSRR_OnOff_plt.png[]
 

@@ -7,16 +7,16 @@ In your cmd.exe window.
 > pip install PyQSPICE
 ```
 
-## After Python Script
+## Before Python Script
 
-This folder contains resulting files after running the Python Script.
-The **"Sim"** folder next to this-folder is "before running script".
+This folder contains minimum files to start the Python script.
+The **"Sim1.afterscript"** folder next to this-folder is "after" running the script.
 
 # Part 7 Overview
 
 This p-FET LDO model compares its "open loop ZOUT (when VRM = OFF)" and "closed loop ZOUT (when VRM = ON)" from the
 post
-[part7](https://www.microwavejournal.com/articles/40953-output-impedance-zout) of a series blog/article
+[part7](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity/post/40953-output-impedance-zout) of a series blog/article
 [RF Signal Integrity to Power Integrity](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity) on
 [Microwave Journal](https://www.microwavejournal.com/).
 

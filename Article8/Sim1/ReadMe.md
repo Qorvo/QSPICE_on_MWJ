@@ -20,7 +20,7 @@ The [**"Sim1.afterScript"**](https://github.com/Qorvo/QSPICE_on_MWJ/tree/main/Ar
 # Part 8 Overview
 
 This model is an example of reconstructing the loop transfer function from its "open loop ZOUT (when VRM = OFF)" and "closed loop ZOUT (when VRM = ON)" from the post  
-"part8" of a series blog/article  
+["part8"](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity/post/41274-reconstructing-a-loop-transfer-function-from-output-impedance-zout) of a series blog/article  
 [RF Signal Integrity to Power Integrity](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity) on  
 [Microwave Journal](https://www.microwavejournal.com/).
 

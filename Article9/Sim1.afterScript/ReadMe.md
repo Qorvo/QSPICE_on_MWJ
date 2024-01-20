@@ -19,7 +19,7 @@ The [**"Sim1"**](https://github.com/Qorvo/QSPICE_on_MWJ/tree/main/Article9/Sim1)
 # Part 9 Overview
 
 This simulation folder demonstrates NISM, Non-Invasive Stability Measurement baed on its "closed loop ZOUT (when VRM = ON)" from the post  
-"part9" of a series blog/article  
+["part9"](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity/post/41276-zout-to-nism-output-impedance-to-non-invasive-stability-measurement) of a series blog/article  
 [RF Signal Integrity to Power Integrity](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity) on  
 [Microwave Journal](https://www.microwavejournal.com/).
 

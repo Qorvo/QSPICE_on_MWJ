@@ -1,0 +1,29 @@
+* ZoModel.qsch
+V1 N01 0 5
+R1 N01 N04 10m
+Cout OUT N02 1µ
+Rload OUT 0 0.5
+Resr N02 N03 1m
+Lesl N03 0 1n
+L1 N04 OUT 100n
+Iac 0 OUT AC Iac
+G2 0 OUT N05 0 {Istep}
+Ø´X2 «OUT´d N06´d» «N05´d» «»  STEP_v100 float Tstep={Tstep} float Tready={Tready} float Istep={Istep}
+V2 N06 0 PULSE 0 5 Tstep 1n 1n 2.5n 5n
+* PyQSPICE TRAN begin
+.param Istep = -1
+.param Tstep = 1m
+.param Tready = 0.5m 
+.param Iac = 0 
+.tran 10m
+.plot tran V(out)
+* PyQSPICE TRAN end
+* PyQSPICE AC begin
+*.param Tstep = 999
+*.param Tready = 998
+*.param Istep = 0
+*.param Iac = 1
+*.ac dec 25 10 100Meg
+*.plot ac V(out)
+* PyQSPICE AC end
+.end

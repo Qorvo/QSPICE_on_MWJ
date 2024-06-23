@@ -1,0 +1,54 @@
+
+SEPIA: Tready=  0.000900, Tstep=  0.001000, Istep= -2.000000, Option:pvl_sepia_log:t1_sepia_tran:a1_sepia_ac:x
+SEPIA: fTran1=_sepia_tran (Auto-Sim: OFF)
+SEPIA: fAC1=_sepia_ac (Auto-Sim: OFF)
+SEPIA: log=_sepia_log
+
+
+========  SEPIA Result Begin  ========
+SEPIA: Q= 5.52, Icoil/2=2.66e-15, f=70.89(kHz), T=14.11(us), PM=10.35(deg),
+SEPIA: Z=2.25e-02, L=5.02e-08, C=9.88e-05, 
+SEPIA: (sL+Rcoil) // ((1/sC)+Rcap) Modeling
+  Rcoil+Rcap=4.08e-03,  Rcoil=1.01e-06,   Rcap=4.08e-03, 
+SEPIA: (sL) // (1/sC) // Rdump Modeling
+  Rdump=1.24e-01,  Rcoil=1.01e-06, 
+SEPIA: preAve=5.00e+00, postAve=5.00e+00
+========  SEPIA Result End    ========
+SEPIA: n= 1.0, Vpk= -0.039108, Tpk=  3.324600(us), Tpp=  0.000000(us), dir=-1
+SEPIA: n= 1.5, Vpk= +0.029424, Tpk= 10.378150(us), Tpp= 14.107100(us), dir=+1
+SEPIA: n= 2.0, Vpk= -0.022137, Tpk= 17.431700(us), Tpp= 14.107100(us), dir=-1
+SEPIA: n= 2.5, Vpk= +0.016655, Tpk= 24.485250(us), Tpp= 14.107100(us), dir=+1
+SEPIA: n= 3.0, Vpk= -0.012530, Tpk= 31.538700(us), Tpp= 14.106900(us), dir=-1
+SEPIA: n= 3.5, Vpk= +0.009425, Tpk= 38.592300(us), Tpp= 14.107200(us), dir=+1
+SEPIA: n= 4.0, Vpk= -0.007090, Tpk= 45.646000(us), Tpp= 14.107400(us), dir=-1
+SEPIA: n= 4.5, Vpk= +0.005333, Tpk= 52.699400(us), Tpp= 14.106800(us), dir=+1
+SEPIA: n= 5.0, Vpk= -0.004011, Tpk= 59.753200(us), Tpp= 14.107600(us), dir=-1
+SEPIA: n= 5.5, Vpk= +0.003017, Tpk= 66.806700(us), Tpp= 14.107000(us), dir=+1
+SEPIA: n= 6.0, Vpk= -0.002270, Tpk= 73.860300(us), Tpp= 14.107200(us), dir=-1
+SEPIA: n= 6.5, Vpk= +0.001707, Tpk= 80.914100(us), Tpp= 14.107600(us), dir=+1
+SEPIA: n= 7.0, Vpk= -0.001284, Tpk= 87.967800(us), Tpp= 14.107400(us), dir=-1
+SEPIA: n= 7.5, Vpk= +0.000966, Tpk= 95.021400(us), Tpp= 14.107200(us), dir=+1
+SEPIA: n= 8.0, Vpk= -0.000726, Tpk=102.074700(us), Tpp= 14.106600(us), dir=-1
+SEPIA: n= 8.5, Vpk= +0.000546, Tpk=109.128300(us), Tpp= 14.107200(us), dir=+1
+SEPIA: n= 9.0, Vpk= -0.000411, Tpk=116.182100(us), Tpp= 14.107600(us), dir=-1
+SEPIA: n= 9.5, Vpk= +0.000309, Tpk=123.235800(us), Tpp= 14.107400(us), dir=+1
+SEPIA: n=10.0, Vpk= -0.000232, Tpk=130.289400(us), Tpp= 14.107200(us), dir=-1
+SEPIA: n=10.5, Vpk= +0.000175, Tpk=137.343100(us), Tpp= 14.107400(us), dir=+1
+SEPIA: n=11.0, Vpk= -0.000131, Tpk=144.396700(us), Tpp= 14.107200(us), dir=-1
+SEPIA: n=11.5, Vpk= +0.000099, Tpk=151.450300(us), Tpp= 14.107200(us), dir=+1
+SEPIA: n=12.0, Vpk= -0.000074, Tpk=158.504000(us), Tpp= 14.107400(us), dir=-1
+SEPIA: n=12.5, Vpk= +0.000056, Tpk=165.557400(us), Tpp= 14.106800(us), dir=+1
+SEPIA: n=13.0, Vpk= -0.000042, Tpk=172.611200(us), Tpp= 14.107600(us), dir=-1
+SEPIA: n=13.5, Vpk= +0.000031, Tpk=179.664700(us), Tpp= 14.107000(us), dir=+1
+SEPIA: n=14.0, Vpk= -0.000023, Tpk=186.718300(us), Tpp= 14.107200(us), dir=-1
+SEPIA: n=14.5, Vpk= +0.000017, Tpk=193.772100(us), Tpp= 14.107600(us), dir=+1
+SEPIA: n=15.0, Vpk= -0.000013, Tpk=200.825400(us), Tpp= 14.106600(us), dir=-1
+SEPIA: n=15.5, Vpk= +0.000010, Tpk=207.879200(us), Tpp= 14.107600(us), dir=+1
+SEPIA: n=16.0, Vpk= +0.000000, Tpk=211.606300(us), Tpp=  7.454200(us), dir=-1
+
+
+========  SEPIA on QSPICE V202  ========
+This "SEPIA" compiled binary (.dll) is Copyright © 2014 Picotest.
+All rights reserved.
+Please contact info@picotest.com for more information.
+========================================

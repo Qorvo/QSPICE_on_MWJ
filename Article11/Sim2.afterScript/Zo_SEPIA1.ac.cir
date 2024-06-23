@@ -1,0 +1,28 @@
+* Zo_SEPIA1.qsch
+Cout OUT 0 100µ
+L1 N01 OUT 50n
+G1 0 OUT N02 0 Istep
+V2 N03 0 PULSE 0 5 Tstep 0.1n 0.1n 1n 2n
+Ø´X1 «OUT´d N03´d» «N02´d o0´d o1´d» «»  SEPIA_v202 float Tstep={Tstep} float Tready={Tready} float Istep={Istep} char* Opt=vp
+Iac 0 OUT AC Iac
+V1 N04 0 DC 5
+R1 OUT 0 0.124
+Rdcr N01 N04 1µ
+* PyQSPICE TRAN begin
+*.param Iac = 0
+*.param Istep = -2
+*.param Tstep =  1mm
+*.param Tready = 0.9m 
+*.tran 2m
+*.plot tran V(out) V(o1)
+*.plot tran V(o0) 
+* PyQSPICE TRAN end
+* PyQSPICE AC begin
+.param Iac = 1
+.param Istep = 0
+.param Tstep =  999
+.param Tready = 998
+.ac dec 100 10 10Meg
+.plot ac V(out)
+* PyQSPICE AC end
+.end

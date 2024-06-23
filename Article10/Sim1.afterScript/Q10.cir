@@ -1,0 +1,26 @@
+* Q10.qsch
+L1 out 0 1µ
+C1 out 0 1µ
+R2 out 0 10
+Iac 0 out AC Iac
+G2 0 out N01 0 {Istep}
+Ø´X2 «out´d N02´d» «N01´d» «»  STEP_v100 float Tstep={Tstep} float Tready={Tready} float Istep={Istep}
+V1 N02 0 PULSE 0 5 Tstep 1n 1n 2.5n 5n
+* PyQSPICE AC begin
+*.param Tstep = 999
+*.param Tready = 998
+*.param Istep=0
+*.param Iac= 1
+*.ac dec 100 10 10Meg
+*.plot ac V(out)
+* PyQSPICE AC end
+* PyQSPICE TRAN begin
+.param Tstep = 1m
+.param Tready = 0.5m
+.param Istep=-1
+.param Iac= 0
+.tran 10m
+.plot tran V(out)
+.plot tran I(Istep)
+* PyQSPICE TRAN end
+.end

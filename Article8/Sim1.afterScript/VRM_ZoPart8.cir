@@ -1,0 +1,35 @@
+* VRM_ZoPart8.qsch
+Rload VOUT 0 220
+Vac VOUT VO AC Vbode
+Vref REF 0 DC 0.8
+Vin VIN 0 DC 10
+M_PMOS VOUT N02 VIN VIN PFET PMOS
+Cout N07 N08 470µ
+Rfb VO N01 420K
+Rg N01 0 80K
+Resr VOUT N07 1m
+R0 N04 0 1Meg
+Cea N06 0 47p
+Ebuf N02 0 N05 0 1
+CinEA FB 0 22p
+Lesl N08 0 0.22n
+Izout 0 VOUT AC Izout
+L2 FB N01 Lopen
+C1 FB 0 Copen
+G1 0 N04 FB REF 1m
+Ebuf1 N03 0 N04 0 1
+Rbw N03 N05 220K
+Cbw N05 0 22p
+R1 N04 N06 R1
+.model PFET PMOS Kp=100 eta=10m VT0 = -1
+.step param x list 0 1 2 3 4 5
+.param R1={if(x - int(x/2)*2,3Meg,1Meg)}
+.param Izout = {if(x < 2, 0, 1)}
+.param Vbode = {if(x < 2, 1, 0)}
+.param Lopen = {if(x < 4, 1f, 1K)}
+.param Copen = {if(x < 4, 1f, 1K)} 
+.ac dec 256 1 100Meg
+.plot AC V(VOUT)/V(VO)
+.plot AC V(VOUT)
+.lib PMOS.txt
+.end

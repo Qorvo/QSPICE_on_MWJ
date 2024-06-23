@@ -1,0 +1,97 @@
+* Buck_SEPIA.qsch
+B1 IN 0 V=vin*min((time/tin),1)
+B2 REF 0 V=ref*table(V(IN)-uvlo,0,0,1,1)
+R1 OUT FB rfb
+R2 FB 0 rg
+R3 COMP N01 rcomp
+C1 N01 0 ccomp
+Ã1 IN 0 COMP FB SS ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ MultGmAmp Gm=gm VoutMax=vin VoutMin=0
+¥2 IN 0 N03 N04 SET RESET ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ SR-FLOP
+.model S1•SW SW Ron=1m Roff=100meg Vt=2.5 Vh=100m
+S1 IN N02 ON 0 S1•SW
+.model D1•X D Ron=1m epsilon=1
+D1 N02 IN D1•X
+.model S2•SW SW Ron=1m Roff=100M Vt=2.5 Vh=100m
+S2 N02 0 OFF 0 S2•SW
+.model D2•X D Ron=1m epsilon=1
+D2 0 N02 D2•X
+L1 N06 OUT L
+C2 N05 0 Co
+Rdcr N06 N02 Rdcr
+.model D3•Z D Ron=1000k Rzen=1 Vrev=ref epsilon=1 revepsilon=10m
+D3 0 SS D3•Z
+G1 0 SS REF 0 100µ
+C3 SS 0 css
+RCOT IN N07 rcot
+C4 VCOT 0 ccot
+Vinsns N07 0 0
+B5 0 VCOT I=I(Vinsns)*buf(V(ON)/vin)
+B3 XEN 0 V=5*inv(time>ten)
+.model S3•SW SW Ron=0.1 Roff=100meg Vt=2.5 Vh=100m ttol=0.1n
+S3 VCOT 0 RESET 0 S3•SW
+B4 VtCOT 0 V=Ko*vout
+E4 Ics N09 N02 N06 g_cs
+V2 N09 0 vos
+¥3 IN 0 SET ¥ COMP Ics ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ HMITT Ttol=1n
+¥1 IN 0 N08 ¥ VCOT VtCOT ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ HMITT Ttol=1n
+¥5 IN 0 COT ¥ ¥ N08 ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ monostable Ton=5n
+¥6 IN 0 ON ¥ N03 ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ OR Td=5n Td2=-5n Ttol=0.1n
+¥7 IN 0 OFF ¥ N04 ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ OR Td=5n Td2=-5n Ttol=0.1n
+¥8 IN 0 RESET ¥ XEN COT ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ ¥ OR
+R4 OUT 0 rl
+G2 0 OUT N10 0 {Istep}
+Ø´X1 «OUT´d ON´d» «N10´d o1´d o2´d» «»  SEPIA_v202 float Tstep={Tstep} float Tready={Tready} float Istep={Istep} char* Opt=vp
+Resr N11 N05 1m
+L2 OUT N11 0.2n
+I1 0 OUT AC Iac
+; Supply Voltage
+.param vin=5
+.param tin=10µ
+ 
+; Reference Voltage
+.param ref=1
+.param uvlo=1.5
+.param css=50n 
+ 
+; Target Output
+.param vout=3.3
+; Feedback Resistors
+.param rg=10K
+.param rfb=(vout/ref-1)*rg
+ 
+; Error Amplifier
+.param gm={1m  /4}
+.param rcomp=20K
+.param ccomp={1n  /4}
+.param vos=2
+.param g_cs={100m/Rdcr}
+.param L=0.5µ
+.param Co=220µ
+; COT Constant-ON Timer
+.param freq=2Meg
+.param ccot=10p
+.param Ko=0.5
+.param rcot={1/Ko/ccot/freq}
+.param rl=1Meg
+* PyQSPICE TRAN begin
+*.param ten=20µ
+*.param Rdcr=30m
+*.param Iac = 0 
+*.param Istep = -1
+*.param Tready = 1m
+*.param Tstep = 1.1m
+*.tran 10.0m
+*.plot tran V(out) V(o2) 
+* PyQSPICE TRAN end
+* PyQSPICE AC begin
+.param ten= 999
+.param Rdcr=100Meg
+.param Iac = 1
+.param Istep = 0
+.param Tready = 998
+.param Tstep = 999 
+.ac dec 49 10 10Meg
+*.ac lin {1024*1024} 10 10Meg 
+.plot AC V(out)
+* PyQSPICE AC end
+.end

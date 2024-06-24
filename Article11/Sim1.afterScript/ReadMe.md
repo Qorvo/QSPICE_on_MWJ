@@ -23,6 +23,11 @@ In your cmd.exe window.
 > pip install PyQSPICE
 ```
 
+# SEPIA@QSPICE Module
+
+This article #11 features [SEPIA@QSPICE](https://github.com/Qorvo/SEPIA_at_QSPICE) module.
+Please check the [module usage](https://github.com/Qorvo/SEPIA_at_QSPICE/blob/main/usage.ipynb), [module parameters](https://github.com/Qorvo/SEPIA_at_QSPICE/blob/main/params.md) and [usage from PyQSPICE](https://github.com/Qorvo/SEPIA_at_QSPICE/blob/main/pyparams.md).
+
 ## After Python Script
 
 This folder contains resulting files after running the Python Script.

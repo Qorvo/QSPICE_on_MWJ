@@ -16,6 +16,11 @@ This folder contains the 2nd simulation of the
 [Microwave Journal](https://www.microwavejournal.com/).
 
 
+# SEPIA@QSPICE Module
+
+This article #11 features [SEPIA@QSPICE](https://github.com/Qorvo/SEPIA_at_QSPICE) module.
+Please check the [module usage](https://github.com/Qorvo/SEPIA_at_QSPICE/blob/main/usage.ipynb), [module parameters](https://github.com/Qorvo/SEPIA_at_QSPICE/blob/main/params.md) and [usage from PyQSPICE](https://github.com/Qorvo/SEPIA_at_QSPICE/blob/main/pyparams.md).
+
 # Install PyQSPICE First!
 
 In your cmd.exe window.

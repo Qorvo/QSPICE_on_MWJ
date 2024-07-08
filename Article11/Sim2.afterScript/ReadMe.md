@@ -11,7 +11,7 @@ Please contact info@picotest.com for more information.
 ````
 
 This folder contains the 2nd simulation of the  
-["part11"](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity) of a series blog/article  
+["part11"](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity/post/42280-loop-analysis-directly-from-time-domain-waveform-with-sepia) of a series blog/article  
 [RF Signal Integrity to Power Integrity](https://www.microwavejournal.com/blogs/32-rf-signal-integrity-to-power-integrity) on  
 [Microwave Journal](https://www.microwavejournal.com/).
 
